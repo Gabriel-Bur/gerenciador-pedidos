@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/obs_produtoNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:text="@string/productName"
+        android:textSize="32sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/obs_unitPriceLabel"
+        android:layout_alignStart="@+id/obs_unitPriceLabel" />
+
+    <TextView
+        android:id="@+id/obs_decription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/description"
+        android:layout_below="@+id/obs_produtoNome"
+        android:layout_alignLeft="@+id/obs_produtoNome"
+        android:layout_alignStart="@+id/obs_produtoNome" />
+
+    <EditText
+        android:id="@+id/obs_obs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/obs_obs"
+        android:lines="3"
+        android:maxLines="3"
+        android:selectAllOnFocus="false"
+        android:layout_below="@+id/obs_decription"
+        android:layout_alignLeft="@+id/obs_decription"
+        android:layout_alignStart="@+id/obs_decription"
+        android:layout_alignRight="@+id/obs_produtoAdd"
+        android:layout_alignEnd="@+id/obs_produtoAdd" />
+
+    <TextView
+        android:id="@+id/obs_unitPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/separator"
+        android:layout_alignStart="@+id/separator"
+        android:layout_below="@+id/obs_obs"
+        android:layout_marginTop="130dp"
+        android:text="@string/unitPrice"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/obs_unitPriceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/separator"
+        android:layout_toEndOf="@+id/obs_unitPriceLabel"
+        android:layout_toRightOf="@+id/obs_unitPriceLabel"
+        android:text="@string/dinheiroText"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/obs_unitPriceLabel"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/black"
+        app:srcCompat="?attr/dividerHorizontal" />
+
+    <TextView
+        android:id="@+id/obs_TotalTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/separator"
+        android:layout_alignRight="@+id/separator"
+        android:layout_below="@+id/separator"
+        android:layout_marginTop="35dp"
+        android:text="@string/dinheiroText"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/obs_totalTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/obs_TotalTextValue"
+        android:layout_alignBottom="@+id/obs_TotalTextValue"
+        android:layout_toLeftOf="@+id/obs_TotalTextValue"
+        android:layout_toStartOf="@+id/obs_TotalTextValue"
+        android:text="@string/totalText"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/obs_produtoAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/separator"
+        android:layout_alignEnd="@+id/separator"
+        android:layout_alignRight="@+id/separator"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/obs_produtoRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/obs_produtoQuantidade"
+        android:layout_toLeftOf="@+id/obs_produtoQuantidade"
+        android:layout_toStartOf="@+id/obs_produtoQuantidade"
+        app:srcCompat="@drawable/ic_remove_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/obs_produtoQuantidade"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/separator"
+        android:layout_alignTop="@+id/obs_produtoAdd"
+        android:layout_toLeftOf="@+id/obs_produtoAdd"
+        android:layout_toStartOf="@+id/obs_produtoAdd"
+        android:text="@string/obs_produtoQuantidade"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/obs_adicionar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/obs_TotalTextValue"
+        android:layout_alignLeft="@+id/separator"
+        android:layout_alignRight="@+id/obs_TotalTextValue"
+        android:layout_alignStart="@+id/separator"
+        android:layout_below="@+id/obs_TotalTextValue"
+        android:layout_marginTop="50dp"
+        android:text="@string/obs_adicionar" />
+
+</RelativeLayout>

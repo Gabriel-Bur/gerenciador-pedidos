@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.infnet.android.gerenciador_pedidos.MenuActivity">
+
+    <TextView
+        android:id="@+id/menu_nomeRestauranteTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Nome do Restaurante"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/menu_buttonMesas"
+        android:layout_width="160dp"
+        android:layout_height="75dp"
+        android:layout_above="@+id/menu_buttonCardapio"
+        android:layout_alignLeft="@+id/menu_buttonCardapio"
+        android:layout_alignStart="@+id/menu_buttonCardapio"
+        android:layout_marginTop="50dp"
+        android:text="@string/buttonMesas" />
+
+    <Button
+        android:id="@+id/menu_buttonCardapio"
+        android:layout_width="160dp"
+        android:layout_height="75dp"
+        android:layout_alignLeft="@+id/menu_buttonSobre"
+        android:layout_alignStart="@+id/menu_buttonSobre"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/buttonCardapio" />
+
+    <Button
+        android:id="@+id/menu_buttonSobre"
+        android:layout_width="160dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/menu_buttonCardapio"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="50dp"
+        android:text="@string/buttonSobre" />
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.infnet.android.gerenciador_pedidos.CardapioActivity">
+
+    <Button
+        android:id="@+id/cardapio_carrinhoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_orange_light"
+        android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
+        android:padding="10dp"
+        android:text="@string/carrinhoBtn" />
+
+    <TextView
+        android:id="@+id/cardapio_totalTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cardapio_ListView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="0 itens \n R$00,00"
+        android:textAlignment="center"
+        android:textSize="18sp"/>
+
+    <ListView
+        android:id="@+id/cardapio_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/cardapio_totalTextLabel"
+        android:layout_alignRight="@+id/cardapio_totalTextLabel"
+        android:layout_below="@+id/cardapio_carrinhoBtn"
+        android:layout_marginTop="10dp"
+        android:entries="@array/Mesas" />
+
+</RelativeLayout>

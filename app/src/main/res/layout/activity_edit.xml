@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.infnet.android.gerenciador_pedidos.EditActivity">
+
+    <Button
+        android:id="@+id/edit_editarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edit_CardapioListView"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/edit_CardapioListView"
+        android:text="@string/buttonEditar" />
+
+    <ExpandableListView
+        android:id="@+id/edit_CardapioListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edit_editarBtn"
+        android:layout_marginTop="10dp"
+        android:choiceMode="none" />
+
+    <Button
+        android:id="@+id/edit_adicionarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/obs_adicionar"
+        android:visibility="invisible" />
+
+</RelativeLayout>

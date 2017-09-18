@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.infnet.android.gerenciador_pedidos.MainActivity">
+
+    <TextView
+        android:id="@+id/main_LogoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Logo"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/main_userLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_UserEditText"
+        android:layout_alignLeft="@+id/main_UserEditText"
+        android:layout_alignStart="@+id/main_UserEditText"
+        android:text="@string/usernamePlaceholder"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/main_UserEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_passLabel"
+        android:layout_alignLeft="@+id/main_passLabel"
+        android:layout_alignStart="@+id/main_passLabel"
+        android:layout_marginBottom="46dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/main_passLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_PassEditText"
+        android:layout_alignEnd="@+id/main_PassEditText"
+        android:layout_alignLeft="@+id/main_PassEditText"
+        android:layout_alignRight="@+id/main_PassEditText"
+        android:layout_alignStart="@+id/main_PassEditText"
+        android:text="@string/passwordLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/main_PassEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/main_LoginBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_PassEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="@string/btnLogin" />
+
+</RelativeLayout>

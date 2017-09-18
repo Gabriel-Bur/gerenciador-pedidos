@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Gerenciador-pedidos</string>
+    <string name="usernamePlaceholder">Username:</string>
+    <string name="passwordPlaceholder">Password:</string>
+    <string name="loginLabel">Login:</string>
+    <string name="passwordLabel">Password:</string>
+    <string name="btnLogin">Acessar</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="buttonMesas">Mesas</string>
+    <string name="buttonCardapio">Cardápio</string>
+    <string name="buttonSobre">Sobre</string>
+    <string name="buttonVoltar">Voltar</string>
+    <string name="buttonEditar">Editar</string>
+    <string name="carrinhoBtn">Pedido</string>
+    <string name="enviarComandaBtn">Enviar Comanda</string>
+    <string name="productName">Nome do Produto</string>
+    <string name="description">Descrição do Produto</string>
+    <string name="unitPrice">Preço Unitário:</string>
+    <string name="addPedidoBtn">Adicionar Pedido</string>
+    <string name="encerrarBtn">Consultar/Encerrar</string>
+    <string name="totalText">Total:</string>
+    <string name="dinheiroText">R$ 00,00</string>
+    <string name="mesa">Mesa</string>
+    <string name="pagarBtn">Pagamento</string>
+    <string name="percentTextView">10%</string>
+    <string name="obs_obs">Alguma Observação ?</string>
+    <string name="obs_produtoQuantidade">1</string>
+    <string name="obs_adicionar">Adicionar</string>
+    <string name="CadastrarProduto">Cadastrar Produto</string>
+    <string name="nomeDoProduto">Nome do Produto</string>
+    <string name="descricaoDoProduto">Descrição</string>
+    <string name="preco">Preço</string>
+    <string name="RS">R$</string>
+    <string name="categoria">Categoria:</string>
+
+    <string-array name="Mesas">
+        <item>Mesa 01</item>
+        <item>Mesa 02</item>
+        <item>Mesa 03</item>
+        <item>Mesa 04</item>
+        <item>Mesa 05</item>
+        <item>Mesa 06</item>
+        <item>Mesa 07</item>
+        <item>Mesa 08</item>
+        <item>Mesa 09</item>
+        <item>Mesa 10</item>
+    </string-array>
+
+
+    <string-array name="Categorias">
+        <item>Pratos</item>
+        <item>Aperitivos</item>
+        <item>Sobremesas</item>
+        <item>Bebidas</item>
+        <item>Bebidas Alcoolicas</item>
+        <item>Vinhos</item>
+
+    </string-array>
+
+</resources>
