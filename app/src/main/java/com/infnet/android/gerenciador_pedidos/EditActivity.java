@@ -194,6 +194,7 @@ public class EditActivity extends AppCompatActivity {
                     toRemove.removeValue();
                     Toast.makeText(EditActivity.this, "Produto Excluido", Toast.LENGTH_SHORT).show();
                     finish();
+
                 }
 
                 return false;

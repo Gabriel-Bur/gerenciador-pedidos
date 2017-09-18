@@ -8,12 +8,12 @@ import java.util.UUID;
  * Created by gabriel.bur on 11/09/2017.
  */
 
-public class Mesa {
+public class Mesa  {
 
 
     private UUID MesaId;
     private String Numero;
-    private ArrayList<Pedido> Pedidos;
+    private Pedido pedido;
 
     public Mesa() {
     }
@@ -34,11 +34,5 @@ public class Mesa {
         Numero = numero;
     }
 
-    public ArrayList<Pedido> getPedidos() {
-        return Pedidos;
-    }
 
-    public void setPedidos(ArrayList<Pedido> pedidos) {
-        Pedidos = pedidos;
-    }
 }
