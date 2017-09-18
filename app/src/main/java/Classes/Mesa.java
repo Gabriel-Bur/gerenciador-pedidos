@@ -10,7 +10,35 @@ import java.util.UUID;
 
 public class Mesa {
 
+
     private UUID MesaId;
     private String Numero;
     private ArrayList<Pedido> Pedidos;
+
+    public Mesa() {
+    }
+
+    public UUID getMesaId() {
+        return MesaId;
+    }
+
+    public void setMesaId(UUID mesaId) {
+        MesaId = mesaId;
+    }
+
+    public String getNumero() {
+        return Numero;
+    }
+
+    public void setNumero(String numero) {
+        Numero = numero;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return Pedidos;
+    }
+
+    public void setPedidos(ArrayList<Pedido> pedidos) {
+        Pedidos = pedidos;
+    }
 }

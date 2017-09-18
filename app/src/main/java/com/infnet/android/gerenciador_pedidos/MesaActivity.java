@@ -10,24 +10,37 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TableLayout;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.infnet.android.gerenciador_pedidos.PopUp_Files.MesaPopup;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import Classes.Mesa;
+
 public class MesaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
+
+    final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    final private DatabaseReference referenciaMesas = mDatabase.child("mesas");
+
 
     private Button editarBtn;
     private Button adicionarBtn;
     private ListView listaMesas;
-    private ArrayList<Object> mesas;
+    private ArrayList<Mesa> mesas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa);
+        init();
 
+
+    }
+
+    private void init() {
         adicionarBtn = (Button) findViewById(R.id.mesa_adicionar);
         editarBtn = (Button) findViewById(R.id.mesa_editarBtn);
         listaMesas = (ListView) findViewById(R.id.mesa_lista);
@@ -46,7 +59,6 @@ public class MesaActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
             }
         });
-
     }
 
     @Override
@@ -54,9 +66,7 @@ public class MesaActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(new Intent(MesaActivity.this,MesaPopup.class));
     }
 
-    //Lembrar de criar um gerador de buttoes
-    //Criar uma função que atribui uma Id automaticamente para cada buttão novo criado
-    //
+
 
 
 

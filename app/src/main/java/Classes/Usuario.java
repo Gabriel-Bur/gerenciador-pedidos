@@ -3,7 +3,7 @@ package Classes;
 import java.util.UUID;
 
 /**
- * Created by Gabriel on 12/09/2017.
+ * Created by gabriel.bur on 18/09/2017.
  */
 
 public class Usuario {
@@ -12,9 +12,15 @@ public class Usuario {
     private String email;
     private String password;
 
-
     public Usuario() {
+    }
 
+    public UUID getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(UUID usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getEmail() {
@@ -32,5 +38,4 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

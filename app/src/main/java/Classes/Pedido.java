@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Pedido {
 
     private UUID PedidoId;
-    private ArrayList<Item> itens;
+    private ArrayList<Item> pedidos;
 
 
 }

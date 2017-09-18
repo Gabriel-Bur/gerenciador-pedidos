@@ -12,6 +12,7 @@ public class Item {
     private String Categoria;
     private String Nome;
     private String Descricao;
+    private String Obs;
     private Double Valor;
     private int Quantidade;
 

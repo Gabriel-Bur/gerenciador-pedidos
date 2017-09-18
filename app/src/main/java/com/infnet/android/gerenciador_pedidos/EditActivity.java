@@ -33,6 +33,7 @@ public class EditActivity extends AppCompatActivity {
     //Referencia do Banco Firebase
     final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     final private DatabaseReference referenciaToRemove = mDatabase.child("itens");
+
     //Referencia das categorias de itens
     private DatabaseReference referenciaPratos = mDatabase.child("itens/pratos");
     private DatabaseReference referenciaAperitivos = mDatabase.child("itens/aperitivos");

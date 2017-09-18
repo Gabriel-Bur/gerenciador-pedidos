@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ public class CardapioActivity extends AppCompatActivity {
 
     private Button pedido;
     private TextView total;
-    private ListView cardapioList ;
+    private ExpandableListView cardapio;
 
 
     @Override
@@ -24,10 +25,10 @@ public class CardapioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cardapio);
 
         pedido = (Button) findViewById(R.id.cardapio_carrinhoBtn);
-        cardapioList = (ListView) findViewById(R.id.cardapio_ListView);
+        cardapio = (ExpandableListView) findViewById(R.id.cardapio_ListView);
 
 
-        cardapioList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cardapio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             //Escolha do Produto do cardápio
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
