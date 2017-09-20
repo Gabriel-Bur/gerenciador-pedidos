@@ -9,8 +9,25 @@ import java.util.UUID;
 
 public class Pedido {
 
-    private UUID PedidoId;
-    private ArrayList<Item> pedidos;
+    private String PedidoId;
+    private ArrayList<Item> itensPedidos;
 
+    public Pedido() {
+    }
 
+    public String getPedidoId() {
+        return PedidoId;
+    }
+
+    public void setPedidoId(String pedidoId) {
+        PedidoId = pedidoId;
+    }
+
+    public ArrayList<Item> getItensPedidos() {
+        return itensPedidos;
+    }
+
+    public void setItensPedidos(ArrayList<Item> itensPedidos) {
+        this.itensPedidos = itensPedidos;
+    }
 }

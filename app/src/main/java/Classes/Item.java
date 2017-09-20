@@ -1,5 +1,9 @@
 package Classes;
 
+import android.support.annotation.FloatRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.UUID;
 
 /**
@@ -10,7 +14,9 @@ public class Item {
 
     private String ItemId;
     private String Categoria;
+    @NonNull
     private String Nome;
+    @Nullable
     private String Descricao;
     private String Obs;
     private Double Valor;

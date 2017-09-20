@@ -26,10 +26,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Objects;
+import java.util.UUID;
 
 import Classes.Mesa;
+import Classes.Pedido;
 
-public class MesaActivity extends AppCompatActivity{
+public class MesaActivity extends AppCompatActivity implements View.OnClickListener {
 
     final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     final private DatabaseReference referenciaMesas = mDatabase.child("mesas");
@@ -38,15 +40,19 @@ public class MesaActivity extends AppCompatActivity{
     private Button editarBtn;
     private Button adicionarBtn;
     private ListView listaMesas;
+    private Mesa novaMesa;
+    private Pedido pedidoDaMesa;
 
     private ArrayAdapter<String> adapter;
-    private List<String> mesas = new ArrayList<String>();
+    private List<String> mesas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa);
         init();
+
+        adicionarBtn.setOnClickListener(this);
 
     }
 
@@ -56,7 +62,7 @@ public class MesaActivity extends AppCompatActivity{
         listaMesas = (ListView)findViewById(R.id.mesa_lista);
 
 
-        referenciaMesas.addListenerForSingleValueEvent(new ValueEventListener() {
+        referenciaMesas.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot child: dataSnapshot.getChildren()){
@@ -103,4 +109,16 @@ public class MesaActivity extends AppCompatActivity{
 
     }
 
+    @Override
+    public void onClick(View view) {
+        novaMesa = new Mesa();
+        novaMesa.setMesaId(UUID.randomUUID().toString());
+        novaMesa.setNome("MesaNum");
+        novaMesa.setPedido(new Pedido());
+
+        //Revisar
+        referenciaMesas.child(novaMesa.getMesaId().toString().toString()).child("pedido").setValue(novaMesa);
+
+        adapter.notifyDataSetChanged();
+    }
 }

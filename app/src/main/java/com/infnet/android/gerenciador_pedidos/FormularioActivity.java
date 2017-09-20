@@ -33,12 +33,15 @@ public class FormularioActivity extends AppCompatActivity implements View.OnClic
     private EditText descricaoProduto;
     private EditText precoProduto;
     private Button adicionarProduto;
+    private Item novoItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
         init();
+
+
         adicionarProduto.setOnClickListener(this);
     }
 
@@ -53,19 +56,24 @@ public class FormularioActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         try {
-            String itemId = UUID.randomUUID().toString();
-            String nome = nomeProduto.getText().toString();
-            String descricao = descricaoProduto.getText().toString();
-            Double preco = Double.parseDouble(precoProduto.getText().toString());
-            String categoriaEscolhida = categoria.getSelectedItem().toString();
 
-            //Criação do novo Item que será salvo no firebase
-            Item novoItem = new Item();
-            novoItem.setItemId(itemId);
-            novoItem.setNome(nome);
-            novoItem.setCategoria(categoriaEscolhida);
-            novoItem.setDescricao(descricao);
-            novoItem.setValor(preco);
+                String itemId = UUID.randomUUID().toString();
+                String nome = nomeProduto.getText().toString();
+                String descricao = descricaoProduto.getText().toString();
+                Double preco = Double.parseDouble(precoProduto.getText().toString());
+                String categoriaEscolhida = categoria.getSelectedItem().toString();
+
+                //Criação do novo Item que será salvo no firebase
+                if (!nome.equals("") || !preco.equals(null)) {
+                    novoItem = new Item();
+                    novoItem.setItemId(itemId);
+                    novoItem.setNome(nome);
+                    novoItem.setCategoria(categoriaEscolhida);
+                    novoItem.setDescricao(descricao);
+                    novoItem.setValor(preco);
+                }else {
+                    Toast.makeText(FormularioActivity.this,"Preencha corretamente",Toast.LENGTH_LONG).show();
+                }
 
             //Salva o Item de Acordo com a categoria escolhida.
             referenciaItens.child(novoItem.getCategoria().toString().toLowerCase()).child(novoItem.getItemId()).setValue(novoItem);
