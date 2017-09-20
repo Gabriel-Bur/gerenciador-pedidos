@@ -2,6 +2,7 @@ package Classes;
 
 import android.support.annotation.Nullable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -10,14 +11,13 @@ import java.util.UUID;
  * Created by gabriel.bur on 11/09/2017.
  */
 
-public class Mesa  {
+public class Mesa implements Serializable {
 
 
     private String MesaId;
     private String Nome;
-    @Nullable
     private Pedido pedido;
-    private Boolean statusPedido;
+
 
     public Mesa() {
     }
@@ -29,6 +29,7 @@ public class Mesa  {
         MesaId = mesaId;
     }
 
+
     public String getNome() {
         return Nome;
     }
@@ -36,20 +37,11 @@ public class Mesa  {
         Nome = nome;
     }
 
-    @Nullable
+
     public Pedido getPedido() {
         return pedido;
     }
-
-    public void setPedido(@Nullable Pedido pedido) {
+    public void setPedido(Pedido pedido) {
         this.pedido = pedido;
-    }
-
-    public Boolean getStatusPedido() {
-        return statusPedido;
-    }
-
-    public void setStatusPedido(Boolean statusPedido) {
-        this.statusPedido = statusPedido;
     }
 }

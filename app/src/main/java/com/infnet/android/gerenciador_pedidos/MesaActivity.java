@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.infnet.android.gerenciador_pedidos.PopUp_Files.MesaPopup;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -31,7 +32,7 @@ import java.util.UUID;
 import Classes.Mesa;
 import Classes.Pedido;
 
-public class MesaActivity extends AppCompatActivity implements View.OnClickListener {
+public class MesaActivity extends AppCompatActivity{
 
     final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     final private DatabaseReference referenciaMesas = mDatabase.child("mesas");
@@ -40,8 +41,6 @@ public class MesaActivity extends AppCompatActivity implements View.OnClickListe
     private Button editarBtn;
     private Button adicionarBtn;
     private ListView listaMesas;
-    private Mesa novaMesa;
-    private Pedido pedidoDaMesa;
 
     private ArrayAdapter<String> adapter;
     private List<String> mesas = new ArrayList<>();
@@ -52,7 +51,6 @@ public class MesaActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_mesa);
         init();
 
-        adicionarBtn.setOnClickListener(this);
 
     }
 
@@ -83,8 +81,13 @@ public class MesaActivity extends AppCompatActivity implements View.OnClickListe
 
         listaMesas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(MesaActivity.this,MesaPopup.class));
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                Mesa mesaNum = (Mesa) adapterView.getItemAtPosition(position);
+                Intent mesaEscolhidaIntent = new Intent(MesaActivity.this,MesaPopup.class);
+                mesaEscolhidaIntent.putExtra("mesaEscolhida",mesaNum);
+                startActivity(mesaEscolhidaIntent);
+
             }
         });
 
@@ -107,18 +110,5 @@ public class MesaActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-    }
-
-    @Override
-    public void onClick(View view) {
-        novaMesa = new Mesa();
-        novaMesa.setMesaId(UUID.randomUUID().toString());
-        novaMesa.setNome("MesaNum");
-        novaMesa.setPedido(new Pedido());
-
-        //Revisar
-        referenciaMesas.child(novaMesa.getMesaId().toString().toString()).child("pedido").setValue(novaMesa);
-
-        adapter.notifyDataSetChanged();
     }
 }

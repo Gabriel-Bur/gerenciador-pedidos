@@ -11,6 +11,8 @@ import com.infnet.android.gerenciador_pedidos.CardapioActivity;
 import com.infnet.android.gerenciador_pedidos.EncerrarActivity;
 import com.infnet.android.gerenciador_pedidos.R;
 
+import Classes.Mesa;
+
 /**
  * Created by Gabriel on 07/09/2017.
  */
@@ -35,9 +37,23 @@ public class MesaPopup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesapopup);
         sizeViewDefinition();
+        init();
+
+
+    }
+
+    protected void init(){
 
         addPedido = (Button) findViewById(R.id.mesapopup_addPedidoBtn);
         encerrarMesa = (Button) findViewById(R.id.mesapopup_encerrarBtnBtn);
+
+        //usar na Activity de escolha.
+        Intent it = getIntent();
+        Mesa mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
+
+
+
+
 
 
         encerrarMesa.setOnClickListener(new View.OnClickListener() {
@@ -55,4 +71,6 @@ public class MesaPopup extends AppCompatActivity {
 
 
     }
+
 }
+
