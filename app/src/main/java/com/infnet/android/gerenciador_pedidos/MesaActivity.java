@@ -42,8 +42,8 @@ public class MesaActivity extends AppCompatActivity{
     private Button adicionarBtn;
     private ListView listaMesas;
 
-    private ArrayAdapter<String> adapter;
-    private List<String> mesas = new ArrayList<>();
+    private ArrayAdapter<Mesa> adapter;
+    private List<Mesa> mesas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,29 +64,13 @@ public class MesaActivity extends AppCompatActivity{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot child: dataSnapshot.getChildren()){
-                    String mesa = child.getKey().toUpperCase();
+                    Mesa mesa = child.getValue(Mesa.class);
                     mesas.add(mesa);
                     adapter.notifyDataSetChanged();
-                    Log.i("123",mesa.toString());
                 }
-
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        listaMesas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
-                Mesa mesaNum = (Mesa) adapterView.getItemAtPosition(position);
-                Intent mesaEscolhidaIntent = new Intent(MesaActivity.this,MesaPopup.class);
-                mesaEscolhidaIntent.putExtra("mesaEscolhida",mesaNum);
-                startActivity(mesaEscolhidaIntent);
 
             }
         });
@@ -95,6 +79,17 @@ public class MesaActivity extends AppCompatActivity{
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mesas);
         listaMesas.setAdapter(adapter);
 
+        listaMesas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            //Passa para uma intent a mesa selecionada
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Mesa mesaEscolhida = (Mesa) adapterView.getItemAtPosition(position);
+                Intent intent = new Intent(MesaActivity.this,MesaPopup.class);
+                intent.putExtra("mesaEscolhida",mesaEscolhida);
+                startActivity(intent);
+
+            }
+        });
 
 
         editarBtn.setOnClickListener(new View.OnClickListener() {

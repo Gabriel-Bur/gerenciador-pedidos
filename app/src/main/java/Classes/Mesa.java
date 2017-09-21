@@ -44,4 +44,10 @@ public class Mesa implements Serializable {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
+
+    @Override
+    public String toString() {
+        return Nome;
+
+    }
 }

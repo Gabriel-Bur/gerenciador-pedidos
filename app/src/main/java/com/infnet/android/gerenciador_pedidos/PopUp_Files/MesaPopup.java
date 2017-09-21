@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,6 +22,8 @@ public class MesaPopup extends AppCompatActivity {
 
     private Button addPedido;
     private Button encerrarMesa;
+    private Mesa mesaEscolhida;
+    private Intent it;
 
     protected void sizeViewDefinition(){
         DisplayMetrics dm = new DisplayMetrics();
@@ -42,16 +45,14 @@ public class MesaPopup extends AppCompatActivity {
 
     }
 
-    protected void init(){
+    private void init(){
 
         addPedido = (Button) findViewById(R.id.mesapopup_addPedidoBtn);
         encerrarMesa = (Button) findViewById(R.id.mesapopup_encerrarBtnBtn);
 
-        //usar na Activity de escolha.
-        Intent it = getIntent();
-        Mesa mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
-
-
+        // Mesa escolhida para usar na Activity seguinte.
+        it = getIntent();
+        mesaEscolhida = (Mesa) it.getSerializableExtra("mesaEscolhida");
 
 
 
@@ -59,7 +60,12 @@ public class MesaPopup extends AppCompatActivity {
         encerrarMesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MesaPopup.this,EncerrarActivity.class));
+
+                Intent intent = new Intent(MesaPopup.this,EncerrarActivity.class);
+                intent.putExtra("mesaEscolhida",mesaEscolhida);
+                startActivity(intent);
+
+                //startActivity(new Intent(MesaPopup.this,EncerrarActivity.class));
             }
         });
         addPedido.setOnClickListener(new View.OnClickListener() {
