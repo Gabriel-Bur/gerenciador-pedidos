@@ -23,7 +23,7 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
     private List<String> itens;
     private Map<String,List<Item>> itensCollection;
 
-
+    public CustomExpandableListView(){}
     public CustomExpandableListView(Activity context, List<String> itens, Map<String, List<Item>> itensCollection) {
         this.context = context;
         this.itens = itens;
@@ -46,6 +46,7 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
     }
 
     @Override
+    //pega o nome do objetos
     public Object getChild(int groupPosition, int childPosition) {
         return itensCollection.get(itens.get(groupPosition)).get(childPosition).getNome();
     }
@@ -92,5 +93,9 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    public Object getChildItem(int groupPosition, int childPosition) {
+        return this.itensCollection.get(this.itens.get(groupPosition)).get(childPosition);
     }
 }

@@ -103,11 +103,11 @@
         android:id="@+id/obs_produtoAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/separator"
-        android:layout_alignEnd="@+id/separator"
-        android:layout_alignRight="@+id/separator"
         app:srcCompat="@drawable/ic_add_black_24dp"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+        android:layout_above="@+id/separator"
+        android:layout_alignRight="@+id/separator"
+        android:layout_alignEnd="@+id/separator" />
 
     <ImageView
         android:id="@+id/obs_produtoRemove"
@@ -119,7 +119,7 @@
         app:srcCompat="@drawable/ic_remove_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
-    <TextView
+    <EditText
         android:id="@+id/obs_produtoQuantidade"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
@@ -127,9 +127,12 @@
         android:layout_alignTop="@+id/obs_produtoAdd"
         android:layout_toLeftOf="@+id/obs_produtoAdd"
         android:layout_toStartOf="@+id/obs_produtoAdd"
+        android:inputType="number"
         android:text="@string/obs_produtoQuantidade"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:enabled="false"
+        />
 
     <Button
         android:id="@+id/obs_adicionar"

@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -40,11 +38,8 @@ public class CardapioActivity extends AppCompatActivity {
     private DatabaseReference referenciaBebidasAlcoolicas = mDatabase.child("itens/bebidas alcoolicas");
     private DatabaseReference referenciaVinhos = mDatabase.child("itens/vinhos");
 
-
-
     private Button pedido;
     private TextView total;
-
 
     private ArrayList<String> listaDataHeader;
     private ArrayList<Item> listaDePratos;
@@ -182,12 +177,20 @@ public class CardapioActivity extends AppCompatActivity {
         adapter = new CustomExpandableListView(this,listaDataHeader,hashMap);
         cardapio.setAdapter(adapter);
 
-
-        cardapio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        cardapio.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            //Escolha do Produto do cardápio
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(CardapioActivity.this,ObsPopup.class));
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition ,int childPosition, long id) {
+                //if (ExpandableListView.getPackedPositionType(id)==ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
+                //int groupPosition = ExpandableListView.getPackedPositionGroup(id);
+                //int childPosition = ExpandableListView.getPackedPositionChild(id);
+
+                Item itemEscolhido = (Item)adapter.getChild(groupPosition,childPosition);
+                Intent it = new Intent(CardapioActivity.this, ObsPopup.class);
+                it.putExtra("itemEscolhido", itemEscolhido);
+                startActivity(it);
+
+           // }
+                return false;
             }
         });
 

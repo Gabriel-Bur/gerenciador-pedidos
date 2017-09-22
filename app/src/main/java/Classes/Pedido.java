@@ -1,6 +1,7 @@
 package Classes;
 
 import java.io.Serializable;
+import java.nio.DoubleBuffer;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 public class Pedido implements Serializable{
 
     private String PedidoId;
+    private Double ValorFinal;
     private ArrayList<Item> itensPedidos;
 
     public Pedido() {
