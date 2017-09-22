@@ -26,12 +26,11 @@ public class ObsPopup extends AppCompatActivity {
     private TextView nomeProduto;
     private TextView descricaoProduto;
     private EditText obsProduto;
-    private EditText ProdutoQuantidade;
+    private TextView ProdutoQuantidade;
     private TextView precoUnitarioProduto;
     private ImageView produtoRemove;
     private ImageView produtoAdd;
     private TextView precoTotalProduto;
-    private Intent it;
     private Item itemEscolhido;
 
 
@@ -40,43 +39,59 @@ public class ObsPopup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_obspopup);
-
+        init();
 
     }
 
     private void init(){
+
         nomeProduto = (TextView) findViewById(R.id.obs_produtoNome);
         descricaoProduto = (TextView) findViewById(R.id.obs_decription);
         obsProduto = (EditText) findViewById(R.id.obs_obs);
         precoUnitarioProduto = (TextView) findViewById(R.id.obs_unitPriceValue);
-        ProdutoQuantidade = (EditText)findViewById(R.id.obs_produtoQuantidade);
+        ProdutoQuantidade = (TextView) findViewById(R.id.obs_produtoQuantidade);
         produtoRemove = (ImageView) findViewById(R.id.obs_produtoRemove);
         produtoAdd = (ImageView) findViewById(R.id.obs_produtoAdd);
         precoTotalProduto = (TextView) findViewById(R.id.obs_TotalTextValue);
 
+        Intent it = getIntent();
+        itemEscolhido = (Item)it.getSerializableExtra("itemEscolhido");
+        nomeProduto.setText(itemEscolhido.getNome());
+        descricaoProduto.setText(itemEscolhido.getDescricao());
+        precoUnitarioProduto.setText(String.format("%.2f",itemEscolhido.getValor()));
+        ProdutoQuantidade.setText("1");
+        precoTotalProduto.setText(CalculoTotal());
+
+
+
         produtoAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 int quantidade = Integer.parseInt(ProdutoQuantidade.getText().toString());
-                quantidade = quantidade + 1;
-                ProdutoQuantidade.setText(quantidade);
-            }
-        });
-        produtoRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int quantidade = Integer.parseInt(ProdutoQuantidade.getText().toString());
-                quantidade = quantidade - 1;
-                ProdutoQuantidade.setText(quantidade);
+                if (quantidade >= 1) {
+                    quantidade = quantidade + 1;
+                    ProdutoQuantidade.setText(quantidade);
+                }else
+                    ProdutoQuantidade.setText("0");
             }
         });
 
-        itemEscolhido = (Item) it.getSerializableExtra("itemEscolhido");
-        nomeProduto.setText(itemEscolhido.getNome());
-        descricaoProduto.setText(itemEscolhido.getDescricao());
-        precoUnitarioProduto.setText("R$" + itemEscolhido.getValor().toString());
-        ProdutoQuantidade.setText("1");
-        precoTotalProduto.setText(CalculoTotal());
+        produtoRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int quantidade = Integer.parseInt(ProdutoQuantidade.getText().toString());
+                if (quantidade > 1) {
+                    quantidade = quantidade - 1;
+                    ProdutoQuantidade.setText(quantidade);
+                }else{
+                    ProdutoQuantidade.setText("1");
+
+                }
+            }
+        });
+
 
 
 
@@ -86,7 +101,8 @@ public class ObsPopup extends AppCompatActivity {
         Double valor = itemEscolhido.getValor();
         int quantidade = Integer.parseInt(ProdutoQuantidade.getText().toString());
         double valorTotal = (quantidade*valor);
-        return valor.toString();
+
+        return String.format("%.2f",valorTotal);
     }
 
 }

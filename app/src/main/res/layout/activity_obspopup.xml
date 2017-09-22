@@ -119,7 +119,7 @@
         app:srcCompat="@drawable/ic_remove_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
-    <EditText
+    <TextView
         android:id="@+id/obs_produtoQuantidade"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
@@ -131,7 +131,6 @@
         android:text="@string/obs_produtoQuantidade"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:enabled="false"
         />
 
     <Button

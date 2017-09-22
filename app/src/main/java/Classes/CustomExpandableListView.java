@@ -48,7 +48,10 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
     @Override
     //pega o nome do objetos
     public Object getChild(int groupPosition, int childPosition) {
-        return itensCollection.get(itens.get(groupPosition)).get(childPosition).getNome();
+        return itensCollection.get(itens.get(groupPosition)).get(childPosition);
+    }
+    public Item getChildItem(int groupPosition, int childPosition) {
+        return itensCollection.get(itens.get(groupPosition)).get(childPosition);
     }
 
     @Override
@@ -80,13 +83,13 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        final String childText = getChild(groupPosition,childPosition).toString();
+        final Item item = getChildItem(groupPosition,childPosition);
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_item,null);
         }
         TextView txtListChild = (TextView)convertView.findViewById(R.id.lblListItem);
-        txtListChild.setText(childText);
+        txtListChild.setText(item.getNome());
         return convertView;
     }
 
@@ -95,7 +98,4 @@ public class CustomExpandableListView extends BaseExpandableListAdapter {
         return true;
     }
 
-    public Object getChildItem(int groupPosition, int childPosition) {
-        return this.itensCollection.get(this.itens.get(groupPosition)).get(childPosition);
-    }
 }
