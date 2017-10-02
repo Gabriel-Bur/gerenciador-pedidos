@@ -1,5 +1,7 @@
 package Classes;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.nio.DoubleBuffer;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ import java.util.UUID;
 public class Pedido implements Serializable{
 
     private String PedidoId;
-    private Double ValorFinal;
+    @Nullable
     private ArrayList<Item> itensPedidos;
 
     public Pedido() {
@@ -25,10 +27,12 @@ public class Pedido implements Serializable{
         PedidoId = pedidoId;
     }
 
+    @Nullable
     public ArrayList<Item> getItensPedidos() {
         return itensPedidos;
     }
-    public void setItensPedidos(ArrayList<Item> itensPedidos) {
+
+    public void setItensPedidos(@Nullable ArrayList<Item> itensPedidos) {
         this.itensPedidos = itensPedidos;
     }
 }

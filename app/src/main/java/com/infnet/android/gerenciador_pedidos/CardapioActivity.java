@@ -24,6 +24,7 @@ import java.util.Map;
 import Classes.CustomExpandableListView;
 import Classes.Item;
 import Classes.Mesa;
+import Classes.Pedido;
 
 public class CardapioActivity extends AppCompatActivity {
 
@@ -43,7 +44,6 @@ public class CardapioActivity extends AppCompatActivity {
     private TextView total;
     private Mesa mesaEscolhida;
 
-    private Intent it;
     private ArrayList<String> listaDataHeader;
     private ArrayList<Item> listaDePratos;
     private ArrayList<Item> listaDeAperitivos;
@@ -85,7 +85,7 @@ public class CardapioActivity extends AppCompatActivity {
         listaDataHeader.add("Bebidas Alcoolicas");
         listaDataHeader.add("Vinhos");
 
-        it = getIntent();
+        Intent it = getIntent();
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
 
 
@@ -201,8 +201,9 @@ public class CardapioActivity extends AppCompatActivity {
         pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent();
-                startActivity(new Intent(CardapioActivity.this,PedidoActivity.class));
+                Intent intent = new Intent(CardapioActivity.this,PedidoActivity.class);
+                intent.putExtra("mesaEscolhida", mesaEscolhida);
+                startActivity(intent);
             }
         });
     }

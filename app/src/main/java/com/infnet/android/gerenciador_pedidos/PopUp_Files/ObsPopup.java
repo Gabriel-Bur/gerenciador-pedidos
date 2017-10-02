@@ -18,6 +18,8 @@ import com.infnet.android.gerenciador_pedidos.R;
 
 import org.w3c.dom.Text;
 
+import java.util.UUID;
+
 import Classes.Item;
 import Classes.Mesa;
 
@@ -65,7 +67,7 @@ public class ObsPopup extends AppCompatActivity {
         precoTotalProduto = (TextView) findViewById(R.id.obs_TotalTextValue);
         botaoParaAdicionar = (Button) findViewById(R.id.obs_adicionar);
 
-        Intent it = getIntent();
+        final Intent it = getIntent();
         // joga na tela as informações do produto escolhido
         itemEscolhido = (Item)it.getSerializableExtra("itemEscolhido");
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
@@ -111,6 +113,7 @@ public class ObsPopup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 itemParaAdicionar = new Item();
+                itemParaAdicionar.setItemId(UUID.randomUUID().toString());
                 itemParaAdicionar.setNome(itemEscolhido.getNome());
                 itemParaAdicionar.setDescricao(itemEscolhido.getDescricao());
                 itemParaAdicionar.setCategoria(itemEscolhido.getCategoria());
@@ -118,9 +121,12 @@ public class ObsPopup extends AppCompatActivity {
                 itemParaAdicionar.setValor(Double.parseDouble(precoTotalProduto.getText().toString()));
                 itemParaAdicionar.setObs(obsProduto.getText().toString());
 
-                referenciaMesa.child(mesaEscolhida.getNome().toString()).child("pedido").setValue(itemParaAdicionar);
+                referenciaMesa.child(mesaEscolhida.getNome().toString()).child("pedido").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
+                finish();
             }
         });
+
+
 
 
     }
