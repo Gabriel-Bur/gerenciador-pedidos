@@ -23,6 +23,7 @@ import java.util.Map;
 
 import Classes.CustomExpandableListView;
 import Classes.Item;
+import Classes.Mesa;
 
 public class CardapioActivity extends AppCompatActivity {
 
@@ -40,7 +41,9 @@ public class CardapioActivity extends AppCompatActivity {
 
     private Button pedido;
     private TextView total;
+    private Mesa mesaEscolhida;
 
+    private Intent it;
     private ArrayList<String> listaDataHeader;
     private ArrayList<Item> listaDePratos;
     private ArrayList<Item> listaDeAperitivos;
@@ -81,6 +84,10 @@ public class CardapioActivity extends AppCompatActivity {
         listaDataHeader.add("Bebidas");
         listaDataHeader.add("Bebidas Alcoolicas");
         listaDataHeader.add("Vinhos");
+
+        it = getIntent();
+        mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
+
 
         referenciaPratos.addValueEventListener(new ValueEventListener() {
             @Override
@@ -180,16 +187,13 @@ public class CardapioActivity extends AppCompatActivity {
         cardapio.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition ,int childPosition, long id) {
-                //if (ExpandableListView.getPackedPositionType(id)==ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
-                //int groupPosition = ExpandableListView.getPackedPositionGroup(id);
-                //int childPosition = ExpandableListView.getPackedPositionChild(id);
 
                 Item itemEscolhido = (Item)adapter.getChild(groupPosition,childPosition);
                 Intent it = new Intent(CardapioActivity.this, ObsPopup.class);
                 it.putExtra("itemEscolhido", itemEscolhido);
+                it.putExtra("mesaEscolhida", mesaEscolhida);
                 startActivity(it);
 
-           // }
                 return false;
             }
         });
@@ -197,6 +201,7 @@ public class CardapioActivity extends AppCompatActivity {
         pedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent it = new Intent();
                 startActivity(new Intent(CardapioActivity.this,PedidoActivity.class));
             }
         });

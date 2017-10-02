@@ -25,14 +25,14 @@ public class MesaPopup extends AppCompatActivity {
     private Mesa mesaEscolhida;
     private Intent it;
 
-    protected void sizeViewDefinition(){
+    protected void sizeViewDefinition() {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         int width = dm.widthPixels;
         int heigth = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8),(int)(heigth*0.6));
+        getWindow().setLayout((int) (width * 0.8), (int) (heigth * 0.6));
     }
 
     @Override
@@ -45,7 +45,7 @@ public class MesaPopup extends AppCompatActivity {
 
     }
 
-    private void init(){
+    private void init() {
 
         addPedido = (Button) findViewById(R.id.mesapopup_addPedidoBtn);
         encerrarMesa = (Button) findViewById(R.id.mesapopup_encerrarBtnBtn);
@@ -55,14 +55,12 @@ public class MesaPopup extends AppCompatActivity {
         mesaEscolhida = (Mesa) it.getSerializableExtra("mesaEscolhida");
 
 
-
-
         encerrarMesa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MesaPopup.this,EncerrarActivity.class);
-                intent.putExtra("mesaEscolhida",mesaEscolhida);
+                Intent intent = new Intent(MesaPopup.this, EncerrarActivity.class);
+                intent.putExtra("mesaEscolhida", mesaEscolhida);
                 startActivity(intent);
 
                 //startActivity(new Intent(MesaPopup.this,EncerrarActivity.class));
@@ -71,7 +69,10 @@ public class MesaPopup extends AppCompatActivity {
         addPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MesaPopup.this,CardapioActivity.class));
+                Intent intent = new Intent(MesaPopup.this, CardapioActivity.class);
+                intent.putExtra("mesaEscolhida", mesaEscolhida);
+                startActivity(intent);
+
             }
         });
 
