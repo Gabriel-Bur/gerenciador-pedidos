@@ -65,22 +65,22 @@ public class PedidoActivity extends AppCompatActivity {
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());
 
         referenciaMesa.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
-            double valor = 0.0;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                double valor = 0.0;
                 //pega cada item de pedido na mesa escolhida
                 try
                 {
                     for (DataSnapshot child : dataSnapshot.child("pedido").getChildren()) {
                         Item item = child.getValue(Item.class);
                         pedidosDaMesa.add(item);
-                        valor = (item.getValor()*item.getQuantidade());
+                        valor = valor + (item.getValor()*item.getQuantidade());
                         adapter.notifyDataSetChanged();
                     }
                 }catch (Exception e){
                 }
                 String formater = String.format("%.2f",valor);
-                dinheiro.setText("R$"+ formater);
+                dinheiro.setText(formater);
 
             }
 
@@ -100,7 +100,7 @@ public class PedidoActivity extends AppCompatActivity {
                 referenciaMesa.child(mesaEscolhida.getNome()).child("pedido").removeValue();
                 pedidosDaMesa.clear();
                 adapter.notifyDataSetChanged();
-                dinheiro.setText("R$ 0.00");
+                dinheiro.setText("0.00");
                 Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
             }
         });

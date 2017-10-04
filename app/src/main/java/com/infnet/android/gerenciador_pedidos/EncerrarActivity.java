@@ -68,18 +68,23 @@ public class EncerrarActivity extends AppCompatActivity {
         referenciaMesas.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Double valor = 0.0;
                 //pega cada item de pedido na mesa escolhida
                 try
                 {
                     for (DataSnapshot child : dataSnapshot.child("conta").getChildren()) {
                         Item item = child.getValue(Item.class);
                         pedidosDaMesa.add(item);
+                        valor = valor + (item.getValor()*item.getQuantidade());
                         adapter.notifyDataSetChanged();
                     }
                 }catch (Exception e){
-
                 }
+                String formater = String.format("%.2f",valor);
+                valorSubTotal.setText(formater);
+
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

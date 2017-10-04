@@ -34,7 +34,6 @@ public class CardapioActivity extends AppCompatActivity {
     final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     //Referencia das categorias de itens
-    private DatabaseReference referenciaMesas = mDatabase.child("mesas");
     private DatabaseReference referenciaPratos = mDatabase.child("itens/pratos");
     private DatabaseReference referenciaAperitivos = mDatabase.child("itens/aperitivos");
     private DatabaseReference referenciaSobremesas = mDatabase.child("itens/sobremesas");
@@ -45,12 +44,10 @@ public class CardapioActivity extends AppCompatActivity {
     private Button pedido;
     private TextView total;
     private Mesa mesaEscolhida;
-    int quatidade = 0;
-    Double valor = 0.0;
+
 
 
     private ArrayList<String> listaDataHeader;
-    private List<Item> pedidosDaMesa = new ArrayList<>();
     private ArrayList<Item> listaDePratos;
     private ArrayList<Item> listaDeAperitivos;
     private ArrayList<Item> listaDeSobremesas;
@@ -74,7 +71,6 @@ public class CardapioActivity extends AppCompatActivity {
     private void init(){
 
 
-        total = (TextView)findViewById(R.id.cardapio_totalTextLabel);
         pedido = (Button) findViewById(R.id.cardapio_carrinhoBtn);
         cardapio = (ExpandableListView) findViewById(R.id.cardapio_ListView);
         listaDePratos = new ArrayList<>();
@@ -98,31 +94,6 @@ public class CardapioActivity extends AppCompatActivity {
         listaDataHeader.add("Bebidas Alcoolicas");
         listaDataHeader.add("Vinhos");
 
-
-        //Recupera o total de itens e valores para mostrar no canto superior direito.
-       /* referenciaMesas.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                try {
-                    for (DataSnapshot child : dataSnapshot.child("pedido").getChildren()) {
-                        Item item = child.getValue(Item.class);
-                        quatidade = item.getQuantidade();
-                        valor = item.getValor()*item.getQuantidade();
-
-
-                    }
-                }catch (Exception e){}
-
-                String formater = String.format("%.2f",valor);
-                total.setText(quatidade+" itens"+"\n R$"+formater);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        */
 
 
         referenciaPratos.addValueEventListener(new ValueEventListener() {

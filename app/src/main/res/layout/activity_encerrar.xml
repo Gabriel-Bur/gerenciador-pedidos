@@ -43,8 +43,8 @@
         android:text="@string/totalText"
         android:textSize="24sp"
         android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/encerrar_valorTotalTextView"
+        android:layout_toStartOf="@+id/encerrar_valorTotalTextView" />
 
     <TextView
         android:id="@+id/encerrar_valorTotalTextView"

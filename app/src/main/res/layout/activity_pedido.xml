@@ -52,11 +52,13 @@
         android:id="@+id/pedido_totalTextLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/pedido_ListView"
+        android:layout_alignBaseline="@+id/pedido_valorTextLabel"
+        android:layout_alignBottom="@+id/pedido_valorTextLabel"
+        android:layout_toLeftOf="@+id/pedido_valorTextLabel"
+        android:layout_toStartOf="@+id/pedido_valorTextLabel"
         android:padding="15dp"
         android:text="@string/totalText"
+        android:textAlignment="textEnd"
         android:textSize="24sp" />
 
 </RelativeLayout>

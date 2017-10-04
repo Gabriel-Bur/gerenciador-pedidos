@@ -16,17 +16,6 @@
         android:padding="10dp"
         android:text="@string/carrinhoBtn" />
 
-    <TextView
-        android:id="@+id/cardapio_totalTextLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/cardapio_ListView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="0 itens \n R$00,00"
-        android:textAlignment="center"
-        android:textSize="18sp"/>
-
     <ExpandableListView
         android:id="@+id/cardapio_ListView"
         android:layout_width="match_parent"
