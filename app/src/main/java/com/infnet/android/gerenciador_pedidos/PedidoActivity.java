@@ -3,10 +3,12 @@ package com.infnet.android.gerenciador_pedidos;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,7 +44,14 @@ public class PedidoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedido);
         init();
+    }
 
+    private String calculoPedido(){
+        Double valorTotal = 0.0;
+        for(Item item: pedidosDaMesa){
+            valorTotal = valorTotal+(item.getValor()*item.getQuantidade());
+        }
+        return String.format("%.2f",valorTotal);
     }
 
     private void init(){
@@ -56,6 +65,7 @@ public class PedidoActivity extends AppCompatActivity {
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());
 
         referenciaMesa.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
+            double valor = 0.0;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //pega cada item de pedido na mesa escolhida
@@ -64,11 +74,14 @@ public class PedidoActivity extends AppCompatActivity {
                     for (DataSnapshot child : dataSnapshot.child("pedido").getChildren()) {
                         Item item = child.getValue(Item.class);
                         pedidosDaMesa.add(item);
+                        valor = (item.getValor()*item.getQuantidade());
                         adapter.notifyDataSetChanged();
                     }
                 }catch (Exception e){
-
                 }
+                String formater = String.format("%.2f",valor);
+                dinheiro.setText("R$"+ formater);
+
             }
 
             @Override
@@ -76,9 +89,21 @@ public class PedidoActivity extends AppCompatActivity {
 
             }
         });
-
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
         pedidoList.setAdapter(adapter);
+
+
+        //Limpa a lista do pedido
+        enviarComanda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                referenciaMesa.child(mesaEscolhida.getNome()).child("pedido").removeValue();
+                pedidosDaMesa.clear();
+                adapter.notifyDataSetChanged();
+                dinheiro.setText("R$ 0.00");
+                Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 

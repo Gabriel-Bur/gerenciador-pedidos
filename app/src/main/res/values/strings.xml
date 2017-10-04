@@ -15,11 +15,11 @@
     <string name="enviarComandaBtn">Enviar Comanda</string>
     <string name="productName">Nome do Produto</string>
     <string name="description">Descrição do Produto</string>
-    <string name="unitPrice">Preço Unitário:</string>
+    <string name="unitPrice">Preço Unitário: R$</string>
     <string name="addPedidoBtn">Adicionar Pedido</string>
     <string name="encerrarBtn">Consultar/Encerrar</string>
-    <string name="totalText">Total:</string>
-    <string name="dinheiroText">R$ 00,00</string>
+    <string name="totalText">Total: R$</string>
+    <string name="dinheiroText">00,00</string>
     <string name="mesa">Mesa</string>
     <string name="pagarBtn">Pagamento</string>
     <string name="percentTextView">10%</string>

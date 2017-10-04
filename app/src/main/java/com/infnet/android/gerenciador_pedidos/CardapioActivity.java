@@ -1,6 +1,7 @@
 package com.infnet.android.gerenciador_pedidos;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,7 @@ public class CardapioActivity extends AppCompatActivity {
     final private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     //Referencia das categorias de itens
+    private DatabaseReference referenciaMesas = mDatabase.child("mesas");
     private DatabaseReference referenciaPratos = mDatabase.child("itens/pratos");
     private DatabaseReference referenciaAperitivos = mDatabase.child("itens/aperitivos");
     private DatabaseReference referenciaSobremesas = mDatabase.child("itens/sobremesas");
@@ -43,8 +45,12 @@ public class CardapioActivity extends AppCompatActivity {
     private Button pedido;
     private TextView total;
     private Mesa mesaEscolhida;
+    int quatidade = 0;
+    Double valor = 0.0;
+
 
     private ArrayList<String> listaDataHeader;
+    private List<Item> pedidosDaMesa = new ArrayList<>();
     private ArrayList<Item> listaDePratos;
     private ArrayList<Item> listaDeAperitivos;
     private ArrayList<Item> listaDeSobremesas;
@@ -62,11 +68,13 @@ public class CardapioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cardapio);
         init();
 
-
     }
+
 
     private void init(){
 
+
+        total = (TextView)findViewById(R.id.cardapio_totalTextLabel);
         pedido = (Button) findViewById(R.id.cardapio_carrinhoBtn);
         cardapio = (ExpandableListView) findViewById(R.id.cardapio_ListView);
         listaDePratos = new ArrayList<>();
@@ -76,7 +84,12 @@ public class CardapioActivity extends AppCompatActivity {
         listaDeBebidasAlcoolicas = new ArrayList<>();
         listaDeVinhos = new ArrayList<>();
 
+        //Recebe a mesa escolhida pelo usuário
+        final Intent it = getIntent();
+        mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
 
+
+        //As categorias da lista
         listaDataHeader = new ArrayList<>();
         listaDataHeader.add("Pratos");
         listaDataHeader.add("Aperitivos");
@@ -85,8 +98,31 @@ public class CardapioActivity extends AppCompatActivity {
         listaDataHeader.add("Bebidas Alcoolicas");
         listaDataHeader.add("Vinhos");
 
-        Intent it = getIntent();
-        mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
+
+        //Recupera o total de itens e valores para mostrar no canto superior direito.
+       /* referenciaMesas.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                try {
+                    for (DataSnapshot child : dataSnapshot.child("pedido").getChildren()) {
+                        Item item = child.getValue(Item.class);
+                        quatidade = item.getQuantidade();
+                        valor = item.getValor()*item.getQuantidade();
+
+
+                    }
+                }catch (Exception e){}
+
+                String formater = String.format("%.2f",valor);
+                total.setText(quatidade+" itens"+"\n R$"+formater);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        */
 
 
         referenciaPratos.addValueEventListener(new ValueEventListener() {
@@ -174,6 +210,9 @@ public class CardapioActivity extends AppCompatActivity {
             }
         });
 
+
+
+        //Cria um dicionario e atribui uma chave com o nome das categorias para cada lista
         hashMap.put(listaDataHeader.get(0),listaDePratos);
         hashMap.put(listaDataHeader.get(1),listaDeAperitivos);
         hashMap.put(listaDataHeader.get(2),listaDeSobremesas);
@@ -183,6 +222,8 @@ public class CardapioActivity extends AppCompatActivity {
 
         adapter = new CustomExpandableListView(this,listaDataHeader,hashMap);
         cardapio.setAdapter(adapter);
+
+
 
         cardapio.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override

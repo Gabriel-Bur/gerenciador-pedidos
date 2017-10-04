@@ -73,7 +73,7 @@ public class ObsPopup extends AppCompatActivity {
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         nomeProduto.setText(itemEscolhido.getNome());
         descricaoProduto.setText(itemEscolhido.getDescricao());
-        precoUnitarioProduto.setText(String.format("%.2f", itemEscolhido.getValor()));
+        precoUnitarioProduto.setText(String.format("%.2f",itemEscolhido.getValor()));
         produtoQuantidade.setText("1");
         precoTotalProduto.setText(CalculoTotal());
 
@@ -118,10 +118,11 @@ public class ObsPopup extends AppCompatActivity {
                 itemParaAdicionar.setDescricao(itemEscolhido.getDescricao());
                 itemParaAdicionar.setCategoria(itemEscolhido.getCategoria());
                 itemParaAdicionar.setQuantidade(Integer.parseInt(produtoQuantidade.getText().toString()));
-                itemParaAdicionar.setValor(Double.parseDouble(precoTotalProduto.getText().toString()));
+                itemParaAdicionar.setValor(Double.parseDouble(precoUnitarioProduto.getText().toString()));
                 itemParaAdicionar.setObs(obsProduto.getText().toString());
 
                 referenciaMesa.child(mesaEscolhida.getNome().toString()).child("pedido").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
+                referenciaMesa.child(mesaEscolhida.getNome().toString()).child("conta").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
                 finish();
             }
         });
@@ -136,7 +137,7 @@ public class ObsPopup extends AppCompatActivity {
         int quantidade = Integer.parseInt(produtoQuantidade.getText().toString());
         double valorTotal = (quantidade * valor);
 
-        return String.format("%.2f", valorTotal);
+        return String.format("%.2f",valorTotal);
     }
 
 }

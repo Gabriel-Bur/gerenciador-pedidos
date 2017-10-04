@@ -5,11 +5,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Classes.Item;
 import Classes.Mesa;
 
 
@@ -19,13 +31,20 @@ import Classes.Mesa;
 
 public class EncerrarActivity extends AppCompatActivity {
 
+
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference referenciaMesas = mDatabase.child("mesas");
+
+
     private Mesa mesaEscolhida;
     private TextView mesaNum;
-    private ListView listaTotalItens;
+    private ListView totalList;
     private TextView valorSubTotal;
     private TextView valorTotal;
     private Button finalizaPagamento;
 
+    private ArrayAdapter<Item> adapter;
+    private List<Item> pedidosDaMesa = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +56,38 @@ public class EncerrarActivity extends AppCompatActivity {
 
     private void init() {
         mesaNum = (TextView)findViewById(R.id.encerrar_mesaNumLabel);
-        listaTotalItens = (ListView)findViewById(R.id.encerrar_ListView);
+        totalList = (ListView)findViewById(R.id.encerrar_ListView);
         valorSubTotal = (TextView)findViewById(R.id.encerrar_valorSubtotalTextView);
         valorTotal = (TextView)findViewById(R.id.encerrar_valorTotalTextView);
         finalizaPagamento = (Button)findViewById(R.id.encerrar_pagamentoBtn);
 
         Intent it = getIntent();
-        Mesa mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
-
+        mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());
+
+        referenciaMesas.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //pega cada item de pedido na mesa escolhida
+                try
+                {
+                    for (DataSnapshot child : dataSnapshot.child("conta").getChildren()) {
+                        Item item = child.getValue(Item.class);
+                        pedidosDaMesa.add(item);
+                        adapter.notifyDataSetChanged();
+                    }
+                }catch (Exception e){
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
+        totalList.setAdapter(adapter);
 
     }
 
