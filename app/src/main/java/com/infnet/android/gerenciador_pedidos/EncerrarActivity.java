@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import Classes.CustomListView;
 import Classes.Item;
 import Classes.Mesa;
 
@@ -43,7 +45,7 @@ public class EncerrarActivity extends AppCompatActivity {
     private TextView valorTotal;
     private Button finalizaPagamento;
 
-    private ArrayAdapter<Item> adapter;
+    private ListAdapter adapter;
     private List<Item> pedidosDaMesa = new ArrayList<>();
 
     @Override
@@ -76,13 +78,16 @@ public class EncerrarActivity extends AppCompatActivity {
                         Item item = child.getValue(Item.class);
                         pedidosDaMesa.add(item);
                         valor = valor + (item.getValor()*item.getQuantidade());
-                        adapter.notifyDataSetChanged();
-                    }
-                }catch (Exception e){
-                }
-                String formater = String.format("%.2f",valor);
-                valorSubTotal.setText(formater);
 
+                    }
+                }catch(Exception e)
+                {}
+                finally {
+                    String formatter = String.format("%.2f",valor);
+                    valorSubTotal.setText(formatter);
+                    String formatter2 = String.format("%.2f", valor * 1.1);
+                    valorTotal.setText(formatter2);
+                }
             }
 
             @Override
@@ -91,7 +96,7 @@ public class EncerrarActivity extends AppCompatActivity {
             }
         });
 
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
+        adapter = new CustomListView(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
         totalList.setAdapter(adapter);
 
     }

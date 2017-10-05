@@ -24,7 +24,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/encerrar_mesaNumLabel"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:listSelector="@drawable/list_selector"
+        android:dividerHeight="1dp"
+        android:divider="#b5b5b5"/>
 
     <Button
         android:id="@+id/encerrar_pagamentoBtn"

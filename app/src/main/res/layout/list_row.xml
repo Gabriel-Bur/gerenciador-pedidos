@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X" />
+
+        <TextView
+            android:id="@+id/qtd_list"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <!-- Title Of Song-->
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hamburguer"
+        android:textColor="#040404"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_toEndOf="@+id/thumbnail" />
+
+    <!-- Artist Name -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Acompanha fritas"
+        android:textColor="#343434"
+        android:textSize="12sp"
+        android:layout_below="@+id/item"
+        android:layout_alignLeft="@+id/item"
+        android:layout_alignStart="@+id/item" />
+
+
+
+
+</RelativeLayout>

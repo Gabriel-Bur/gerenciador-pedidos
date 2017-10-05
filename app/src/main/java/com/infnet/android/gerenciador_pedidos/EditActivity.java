@@ -190,7 +190,7 @@ public class EditActivity extends AppCompatActivity {
                     int groupPosition = ExpandableListView.getPackedPositionGroup(id);
                     int childPosition = ExpandableListView.getPackedPositionChild(id);
 
-                    DatabaseReference toRemove = referenciaToRemove.child(listaDataHeader.get(groupPosition).toLowerCase()).child(hashMap.get(listaDataHeader.get(groupPosition)).get(childPosition).getItemId());
+                    DatabaseReference toRemove = referenciaToRemove.child(listaDataHeader.get(groupPosition).toLowerCase()) .child(hashMap.get(listaDataHeader.get(groupPosition)).get(childPosition).getItemId());
                     toRemove.removeValue();
                     Toast.makeText(EditActivity.this, "Produto Excluido", Toast.LENGTH_SHORT).show();
                     finish();

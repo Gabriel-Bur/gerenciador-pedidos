@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import Classes.CustomListView;
 import Classes.Item;
 import Classes.Mesa;
 import Classes.Pedido;
@@ -35,7 +37,7 @@ public class PedidoActivity extends AppCompatActivity {
     private Button enviarComanda;
     private Mesa mesaEscolhida;
 
-    private ArrayAdapter<Item> adapter;
+    private ListAdapter adapter;
     private List<Item> pedidosDaMesa = new ArrayList<>();
 
 
@@ -46,13 +48,6 @@ public class PedidoActivity extends AppCompatActivity {
         init();
     }
 
-    private String calculoPedido(){
-        Double valorTotal = 0.0;
-        for(Item item: pedidosDaMesa){
-            valorTotal = valorTotal+(item.getValor()*item.getQuantidade());
-        }
-        return String.format("%.2f",valorTotal);
-    }
 
     private void init(){
         mesaNum = (TextView) findViewById(R.id.pedido_mesaNumLabel);
@@ -75,7 +70,6 @@ public class PedidoActivity extends AppCompatActivity {
                         Item item = child.getValue(Item.class);
                         pedidosDaMesa.add(item);
                         valor = valor + (item.getValor()*item.getQuantidade());
-                        adapter.notifyDataSetChanged();
                     }
                 }catch (Exception e){
                 }
@@ -89,7 +83,7 @@ public class PedidoActivity extends AppCompatActivity {
 
             }
         });
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
+        adapter = new CustomListView(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
         pedidoList.setAdapter(adapter);
 
 
@@ -99,9 +93,9 @@ public class PedidoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 referenciaMesa.child(mesaEscolhida.getNome()).child("pedido").removeValue();
                 pedidosDaMesa.clear();
-                adapter.notifyDataSetChanged();
                 dinheiro.setText("0.00");
                 Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 

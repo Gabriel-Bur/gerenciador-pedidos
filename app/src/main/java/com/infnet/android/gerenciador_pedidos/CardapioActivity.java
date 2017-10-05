@@ -102,6 +102,7 @@ public class CardapioActivity extends AppCompatActivity {
                 for (DataSnapshot child : dataSnapshot.getChildren()){
                     Item item = child.getValue(Item.class);
                     listaDePratos.add(item);
+
                 }
             }
 
