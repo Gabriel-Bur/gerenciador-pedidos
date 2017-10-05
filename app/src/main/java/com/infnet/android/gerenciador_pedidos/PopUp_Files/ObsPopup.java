@@ -67,7 +67,7 @@ public class ObsPopup extends AppCompatActivity {
         precoTotalProduto = (TextView) findViewById(R.id.obs_TotalTextValue);
         botaoParaAdicionar = (Button) findViewById(R.id.obs_adicionar);
 
-        final Intent it = getIntent();
+        Intent it = getIntent();
         // joga na tela as informações do produto escolhido
         itemEscolhido = (Item)it.getSerializableExtra("itemEscolhido");
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");

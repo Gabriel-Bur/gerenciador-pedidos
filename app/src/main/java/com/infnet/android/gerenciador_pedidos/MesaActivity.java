@@ -63,11 +63,14 @@ public class MesaActivity extends AppCompatActivity{
         referenciaMesas.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot child: dataSnapshot.getChildren()){
-                    Mesa mesa = child.getValue(Mesa.class);
-                    mesas.add(mesa);
-                    adapter.notifyDataSetChanged();
-                }
+                mesas.clear();
+                try{
+                    for (DataSnapshot child : dataSnapshot.getChildren()) {
+                        Mesa mesa = child.getValue(Mesa.class);
+                        mesas.add(mesa);
+                        adapter.notifyDataSetChanged();
+                    }
+                }catch (Exception e){}
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
