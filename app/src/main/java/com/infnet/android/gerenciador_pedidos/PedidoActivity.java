@@ -91,7 +91,10 @@ public class PedidoActivity extends AppCompatActivity {
         enviarComanda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                referenciaMesa.child(mesaEscolhida.getNome()).child("pedido").removeValue();
+                DatabaseReference fromPath = referenciaMesa.child(mesaEscolhida.getNome()).child("pedido");
+                DatabaseReference toPath = referenciaMesa.child(mesaEscolhida.getNome()).child("conta");
+                moveFirabaseRecord(fromPath,toPath);
+
                 pedidosDaMesa.clear();
                 dinheiro.setText("0.00");
                 Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
@@ -99,6 +102,22 @@ public class PedidoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void moveFirabaseRecord(final DatabaseReference fromPath, final  DatabaseReference toPath){
+        fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                fromPath.removeValue();
+                toPath.setValue(dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }
