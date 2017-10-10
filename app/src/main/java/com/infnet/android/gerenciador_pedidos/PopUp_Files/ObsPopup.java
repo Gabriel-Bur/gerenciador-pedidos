@@ -18,6 +18,7 @@ import com.infnet.android.gerenciador_pedidos.R;
 
 import org.w3c.dom.Text;
 
+import java.util.Locale;
 import java.util.UUID;
 
 import Classes.Item;
@@ -73,7 +74,7 @@ public class ObsPopup extends AppCompatActivity {
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         nomeProduto.setText(itemEscolhido.getNome());
         descricaoProduto.setText(itemEscolhido.getDescricao());
-        precoUnitarioProduto.setText(String.format("%.2f",itemEscolhido.getValor()));
+        precoUnitarioProduto.setText(String.format(Locale.ENGLISH,"%.2f",itemEscolhido.getValor()));
         produtoQuantidade.setText("1");
         precoTotalProduto.setText(CalculoTotal());
 
@@ -137,7 +138,7 @@ public class ObsPopup extends AppCompatActivity {
         int quantidade = Integer.parseInt(produtoQuantidade.getText().toString());
         double valorTotal = (quantidade * valor);
 
-        return String.format("%.2f",valorTotal);
+        return String.format(Locale.ENGLISH,"%.2f",valorTotal);
     }
 
 }
