@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -99,6 +101,18 @@ public class EncerrarActivity extends AppCompatActivity {
         adapter = new CustomListView(this,android.R.layout.simple_list_item_1,pedidosDaMesa);
         totalList.setAdapter(adapter);
 
+
+        finalizaPagamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    referenciaMesas.child(mesaEscolhida.getNome()).child("conta").removeValue();
+                    pedidosDaMesa.clear();
+                    Toast.makeText(getApplicationContext(),"Pagamento efetuado",Toast.LENGTH_LONG).show();
+                    finish();
+                }catch (Exception e){}
+            }
+        });
     }
 
 

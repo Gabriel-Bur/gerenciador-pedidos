@@ -91,14 +91,20 @@ public class PedidoActivity extends AppCompatActivity {
         enviarComanda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference fromPath = referenciaMesa.child(mesaEscolhida.getNome()).child("pedido");
-                DatabaseReference toPath = referenciaMesa.child(mesaEscolhida.getNome()).child("conta");
-                moveFirabaseRecord(fromPath,toPath);
+                if (!pedidosDaMesa.isEmpty()){
+                    DatabaseReference fromPath = referenciaMesa.child(mesaEscolhida.getNome()).child("pedido");
+                    DatabaseReference toPath = referenciaMesa.child(mesaEscolhida.getNome()).child("conta");
+                    moveFirabaseRecord(fromPath,toPath);
+                    fromPath.removeValue();
 
-                pedidosDaMesa.clear();
-                dinheiro.setText("0.00");
-                Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
-                finish();
+                    pedidosDaMesa.clear();
+                    dinheiro.setText("0.00");
+                    Toast.makeText(getApplicationContext(),"Pedido Enviado",Toast.LENGTH_LONG).show();
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Pedido vazio",Toast.LENGTH_LONG).show();
+                    finish();
+                }
             }
         });
 
@@ -106,11 +112,14 @@ public class PedidoActivity extends AppCompatActivity {
 
     public void moveFirabaseRecord(final DatabaseReference fromPath, final  DatabaseReference toPath){
         fromPath.addListenerForSingleValueEvent(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                fromPath.removeValue();
-                toPath.setValue(dataSnapshot.getValue());
+                try{
+                    for(DataSnapshot child: dataSnapshot.getChildren()){
+                        Item item = child.getValue(Item.class);
+                        toPath.child(item.getItemId()).setValue(item);
+                    }
+                }catch (Exception e){}
             }
 
             @Override
