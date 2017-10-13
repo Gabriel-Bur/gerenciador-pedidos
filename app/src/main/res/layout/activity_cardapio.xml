@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_orange_light"
-        android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
         android:padding="10dp"
         android:text="@string/carrinhoBtn" />
 

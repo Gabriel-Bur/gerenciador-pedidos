@@ -137,12 +137,9 @@
         android:id="@+id/obs_adicionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/obs_TotalTextValue"
-        android:layout_alignLeft="@+id/separator"
-        android:layout_alignRight="@+id/obs_TotalTextValue"
-        android:layout_alignStart="@+id/separator"
-        android:layout_below="@+id/obs_TotalTextValue"
-        android:layout_marginTop="50dp"
-        android:text="@string/obs_adicionar" />
+        android:text="@string/obs_adicionar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
