@@ -23,7 +23,6 @@ import java.util.List;
 import Classes.CustomListView;
 import Classes.Item;
 import Classes.Mesa;
-import Classes.Pedido;
 
 public class PedidoActivity extends AppCompatActivity {
 

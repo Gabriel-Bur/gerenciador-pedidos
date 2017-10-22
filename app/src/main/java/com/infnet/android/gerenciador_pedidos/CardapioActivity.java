@@ -26,7 +26,6 @@ import java.util.Map;
 import Classes.CustomExpandableListView;
 import Classes.Item;
 import Classes.Mesa;
-import Classes.Pedido;
 
 public class CardapioActivity extends AppCompatActivity {
 
@@ -44,7 +43,6 @@ public class CardapioActivity extends AppCompatActivity {
     private DatabaseReference referenciaVinhos = mDatabase.child("itens/vinhos");
 
     private Button pedido;
-    private TextView total;
     private Mesa mesaEscolhida;
 
 
@@ -98,7 +96,7 @@ public class CardapioActivity extends AppCompatActivity {
         listaDataHeader.add("Vinhos");
 
 
-
+        //Carrega a lista de cada categoria em um lista
         referenciaPratos.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -200,6 +198,7 @@ public class CardapioActivity extends AppCompatActivity {
 
 
 
+        //Passa para a proxima Activity o Item selecionado
         cardapio.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition ,int childPosition, long id) {
@@ -213,6 +212,7 @@ public class CardapioActivity extends AppCompatActivity {
                 return false;
             }
         });
+
 
         pedido.setOnClickListener(new View.OnClickListener() {
             @Override

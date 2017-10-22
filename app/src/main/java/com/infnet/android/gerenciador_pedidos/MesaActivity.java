@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.infnet.android.gerenciador_pedidos.PopUp_Files.MesaPopup;
 
@@ -42,6 +43,8 @@ public class MesaActivity extends AppCompatActivity{
     private Button adicionarBtn;
     private ListView listaMesas;
 
+    private String ultimaMesa;
+
     private ArrayAdapter<Mesa> adapter;
     private List<Mesa> mesas = new ArrayList<>();
 
@@ -52,6 +55,7 @@ public class MesaActivity extends AppCompatActivity{
         init();
 
 
+
     }
 
     private void init() {
@@ -60,6 +64,8 @@ public class MesaActivity extends AppCompatActivity{
         listaMesas = (ListView)findViewById(R.id.mesa_lista);
 
 
+
+        //Lista todas as mesas do banco
         referenciaMesas.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -82,6 +88,7 @@ public class MesaActivity extends AppCompatActivity{
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,mesas);
         listaMesas.setAdapter(adapter);
 
+        //Passa para a proxima Activity a mesa selecionada
         listaMesas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             //Passa para uma intent a mesa selecionada
@@ -93,7 +100,6 @@ public class MesaActivity extends AppCompatActivity{
 
             }
         });
-
 
         editarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,5 +114,27 @@ public class MesaActivity extends AppCompatActivity{
             }
         });
 
+        ultimaMesa();
+
     }
+
+    public void ultimaMesa(){
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        Query lastQuery = database.child("mesas").limitToLast(1);
+
+        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ultimaMesa = dataSnapshot.getKey().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
 }

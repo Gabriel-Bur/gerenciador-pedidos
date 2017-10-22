@@ -1,11 +1,9 @@
 package Classes;
 
-import android.support.annotation.Nullable;
+
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+
 
 /**
  * Created by gabriel.bur on 11/09/2017.
@@ -17,6 +15,7 @@ public class Mesa implements Serializable {
     private String MesaId;
     private String Nome;
     private Pedido pedido;
+    private Conta conta;
 
 
     public Mesa() {
@@ -44,6 +43,15 @@ public class Mesa implements Serializable {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
+
 
     @Override
     public String toString() {
