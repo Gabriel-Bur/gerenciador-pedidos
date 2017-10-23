@@ -47,7 +47,6 @@ public class Mesa implements Serializable {
     public Conta getConta() {
         return conta;
     }
-
     public void setConta(Conta conta) {
         this.conta = conta;
     }
@@ -55,7 +54,7 @@ public class Mesa implements Serializable {
 
     @Override
     public String toString() {
-        return Nome.toUpperCase();
+        return Nome;
 
     }
 }

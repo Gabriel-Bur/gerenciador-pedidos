@@ -69,7 +69,7 @@ public class EncerrarActivity extends AppCompatActivity {
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());
 
-        referenciaMesas.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
+        referenciaMesas.child(mesaEscolhida.getNome().toLowerCase()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Double valor = 0.0;
@@ -106,7 +106,7 @@ public class EncerrarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    referenciaMesas.child(mesaEscolhida.getNome()).child("conta").removeValue();
+                    referenciaMesas.child(mesaEscolhida.getNome().toLowerCase()).child("conta").removeValue();
                     pedidosDaMesa.clear();
                     Toast.makeText(getApplicationContext(),"Pagamento efetuado",Toast.LENGTH_LONG).show();
                     finish();

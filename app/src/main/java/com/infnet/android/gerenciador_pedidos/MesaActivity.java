@@ -43,7 +43,6 @@ public class MesaActivity extends AppCompatActivity{
     private Button adicionarBtn;
     private ListView listaMesas;
 
-    private String ultimaMesa;
 
     private ArrayAdapter<Mesa> adapter;
     private List<Mesa> mesas = new ArrayList<>();
@@ -53,7 +52,6 @@ public class MesaActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mesa);
         init();
-
 
 
     }
@@ -111,27 +109,6 @@ public class MesaActivity extends AppCompatActivity{
                     editarBtn.setText("Editar");
                     adicionarBtn.setVisibility(view.INVISIBLE);
                 }
-            }
-        });
-
-        ultimaMesa();
-
-    }
-
-    public void ultimaMesa(){
-
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        Query lastQuery = database.child("mesas").limitToLast(1);
-
-        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ultimaMesa = dataSnapshot.getKey().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
             }
         });
 

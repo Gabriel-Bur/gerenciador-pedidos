@@ -58,7 +58,7 @@ public class PedidoActivity extends AppCompatActivity {
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());
 
-        referenciaMesa.child(mesaEscolhida.getNome()).addValueEventListener(new ValueEventListener() {
+        referenciaMesa.child(mesaEscolhida.getNome().toLowerCase()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 double valor = 0.0;
@@ -91,8 +91,8 @@ public class PedidoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!pedidosDaMesa.isEmpty()){
-                    DatabaseReference fromPath = referenciaMesa.child(mesaEscolhida.getNome()).child("pedido");
-                    DatabaseReference toPath = referenciaMesa.child(mesaEscolhida.getNome()).child("conta");
+                    DatabaseReference fromPath = referenciaMesa.child(mesaEscolhida.getNome().toLowerCase()).child("pedido");
+                    DatabaseReference toPath = referenciaMesa.child(mesaEscolhida.getNome().toLowerCase()).child("conta");
                     moveFirabaseRecord(fromPath,toPath);
                     fromPath.removeValue();
 

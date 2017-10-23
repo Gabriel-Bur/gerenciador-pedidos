@@ -122,7 +122,7 @@ public class ObsPopup extends AppCompatActivity {
                 itemParaAdicionar.setValor(Double.parseDouble(precoUnitarioProduto.getText().toString()));
                 itemParaAdicionar.setObs(obsProduto.getText().toString());
 
-                referenciaMesa.child(mesaEscolhida.getNome().toString()).child("pedido").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
+                referenciaMesa.child(mesaEscolhida.getNome().toLowerCase()).child("pedido").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
                // referenciaMesa.child(mesaEscolhida.getNome().toString()).child("conta").child(itemParaAdicionar.getItemId()).setValue(itemParaAdicionar);
                 finish();
             }
