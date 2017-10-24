@@ -19,19 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.infnet.android.gerenciador_pedidos.PopUp_Files.MesaPopup;
-
-import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Objects;
-import java.util.UUID;
-
 import Classes.Mesa;
-import Classes.Pedido;
 
 public class MesaActivity extends AppCompatActivity{
 
@@ -39,8 +29,7 @@ public class MesaActivity extends AppCompatActivity{
     final private DatabaseReference referenciaMesas = mDatabase.child("mesas");
 
 
-    private Button editarBtn;
-    private Button adicionarBtn;
+
     private ListView listaMesas;
 
 
@@ -57,8 +46,7 @@ public class MesaActivity extends AppCompatActivity{
     }
 
     private void init() {
-        adicionarBtn = (Button)findViewById(R.id.mesa_adicionar);
-        editarBtn = (Button)findViewById(R.id.mesa_editarBtn);
+
         listaMesas = (ListView)findViewById(R.id.mesa_lista);
 
 
@@ -96,19 +84,6 @@ public class MesaActivity extends AppCompatActivity{
                 intent.putExtra("mesaEscolhida",mesaEscolhida);
                 startActivity(intent);
 
-            }
-        });
-
-        editarBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (editarBtn.getText().equals("Editar")){
-                    editarBtn.setText("Cancelar");
-                    adicionarBtn.setVisibility(View.VISIBLE);
-                }else{
-                    editarBtn.setText("Editar");
-                    adicionarBtn.setVisibility(view.INVISIBLE);
-                }
             }
         });
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/obs_produtoNome"
@@ -14,6 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="35dp"
+        android:padding="10dp"
         android:text="@string/productName"
         android:textSize="32sp" />
 
@@ -21,11 +22,12 @@
         android:id="@+id/obs_decription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/obs_produtoNome"
-        android:layout_alignStart="@+id/obs_produtoNome"
+        android:text="@string/description"
+        android:padding="10dp"
+        android:textSize="16sp"
         android:layout_below="@+id/obs_produtoNome"
-        android:layout_marginTop="15dp"
-        android:text="@string/description" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/obs_obs"
@@ -51,8 +53,9 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/obs_obs"
         android:layout_marginTop="90dp"
+        android:padding="5dp"
         android:text="@string/unitPrice"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/obs_unitPriceValue"
@@ -63,33 +66,33 @@
         android:layout_toEndOf="@+id/obs_unitPriceLabel"
         android:layout_toRightOf="@+id/obs_unitPriceLabel"
         android:text="@string/dinheiroText"
-        android:textSize="18sp" />
+        android:padding="5dp"
+        android:textSize="16sp" />
 
 
     <TextView
-        android:id="@+id/obs_TotalTextValue"
+        android:id="@+id/encerrar_totalTextLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/obs_totalTextLabel"
-        android:layout_alignBottom="@+id/obs_totalTextLabel"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_toEndOf="@+id/obs_totalTextLabel"
-        android:layout_toRightOf="@+id/obs_totalTextLabel"
-        android:text="@string/dinheiroText"
-        android:textAlignment="textEnd"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/obs_totalTextLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/obs_produtoNome"
-        android:layout_alignRight="@+id/obs_produtoNome"
-        android:layout_below="@+id/imageView2"
-        android:layout_marginTop="25dp"
+        android:padding="15dp"
         android:text="@string/totalText"
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:layout_below="@+id/imageView2"
+        android:layout_toLeftOf="@+id/encerrar_valorTotalTextView"
+        android:layout_toStartOf="@+id/encerrar_valorTotalTextView" />
+
+    <TextView
+        android:id="@+id/encerrar_valorTotalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/dinheiroText"
+        android:textSize="24sp"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/encerrar_totalTextLabel" />
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -109,7 +112,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         app:srcCompat="@drawable/ic_add_black_24dp"
-        tools:ignore="VectorDrawableCompat" />
+        tools:ignore="VectorDrawableCompat"
+        android:layout_alignTop="@+id/obs_produtoQuantidade" />
 
     <ImageView
         android:id="@+id/obs_produtoRemove"

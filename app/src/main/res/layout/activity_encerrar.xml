@@ -53,12 +53,12 @@
         android:id="@+id/encerrar_valorTotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/encerrar_pagamentoBtn"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:padding="15dp"
         android:text="@string/dinheiroText"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_above="@+id/encerrar_pagamentoBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -87,11 +87,11 @@
         android:id="@+id/encerrar_valorSubtotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/encerrar_percentTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:padding="15dp"
         android:text="@string/dinheiroText"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_above="@+id/encerrar_percentTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -13,27 +13,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/mesa_editarBtn"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
         android:entries="@array/Mesas" />
-
-    <Button
-        android:id="@+id/mesa_editarBtn"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonEditar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/mesa_adicionar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/obs_adicionar"
-        android:visibility="invisible" />
 
 </RelativeLayout>
