@@ -37,6 +37,5 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(new Intent(MenuActivity.this,MesaActivity.class));
             }
         });
-
     }
 }

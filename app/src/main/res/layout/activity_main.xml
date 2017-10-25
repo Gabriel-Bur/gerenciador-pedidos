@@ -59,14 +59,17 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-    <Button
+    <com.gc.materialdesign.views.ButtonRectangle
         android:id="@+id/main_LoginBtn"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/main_PassEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:text="@string/btnLogin" />
+        android:layout_marginTop="35dp"
+        android:text="@string/btnLogin"
+        />
+
+
+
 
 </RelativeLayout>

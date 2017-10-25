@@ -74,13 +74,13 @@
         android:id="@+id/obs_TotalTextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/obs_TotalTextLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageView2"
         android:padding="15dp"
         android:text="@string/dinheiroText"
-        android:textSize="24sp"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/obs_TotalTextLabel" />
+        android:textSize="24sp" />
 
 
     <ImageView
@@ -139,11 +139,12 @@
         android:id="@+id/obs_TotalTextLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
         android:padding="15dp"
         android:text="@string/totalText"
         android:textSize="24sp"
         android:layout_below="@+id/imageView2"
-        android:layout_alignRight="@+id/obs_produtoNome"
-        android:layout_alignEnd="@+id/obs_produtoNome" />
+        android:layout_toLeftOf="@+id/obs_TotalTextValue"
+        android:layout_toStartOf="@+id/obs_TotalTextValue" />
 
 </RelativeLayout>
