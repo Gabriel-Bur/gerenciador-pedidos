@@ -71,18 +71,7 @@
 
 
     <TextView
-        android:id="@+id/encerrar_totalTextLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:text="@string/totalText"
-        android:textSize="24sp"
-        android:layout_below="@+id/imageView2"
-        android:layout_toLeftOf="@+id/encerrar_valorTotalTextView"
-        android:layout_toStartOf="@+id/encerrar_valorTotalTextView" />
-
-    <TextView
-        android:id="@+id/encerrar_valorTotalTextView"
+        android:id="@+id/obs_TotalTextValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="15dp"
@@ -91,7 +80,7 @@
         android:layout_alignTop="@+id/imageView2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/encerrar_totalTextLabel" />
+        android:layout_alignBottom="@+id/obs_TotalTextLabel" />
 
 
     <ImageView
@@ -145,5 +134,16 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:text="@string/obs_adicionar" />
+
+    <TextView
+        android:id="@+id/obs_TotalTextLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="@string/totalText"
+        android:textSize="24sp"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignRight="@+id/obs_produtoNome"
+        android:layout_alignEnd="@+id/obs_produtoNome" />
 
 </RelativeLayout>
