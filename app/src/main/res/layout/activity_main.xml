@@ -59,7 +59,7 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-    <com.gc.materialdesign.views.ButtonRectangle
+    <Button
         android:id="@+id/main_LoginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
