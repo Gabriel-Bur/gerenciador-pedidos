@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/holo_orange_light"
+        android:background="#FFCC0D"
         android:padding="10dp"
         android:text="@string/carrinhoBtn" />
 

@@ -5,11 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:background="@drawable/radius_border"
-=======
     android:background="@drawable/radius_background"
->>>>>>> d9403262eda60355be1dcdfca9ddd85203e30f5d
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="10dp"
