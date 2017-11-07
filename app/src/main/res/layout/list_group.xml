@@ -2,7 +2,11 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:background="@drawable/group_selector"
+=======
+        android:background="@drawable/gradient_bg_group"
+>>>>>>> d9403262eda60355be1dcdfca9ddd85203e30f5d
         android:orientation="vertical"
         android:padding="8dp">
 

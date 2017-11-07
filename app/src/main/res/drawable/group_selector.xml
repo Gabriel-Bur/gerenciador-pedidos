@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
     <item
         android:state_selected="false"
         android:state_pressed="false"
         android:drawable="@drawable/gradient_bg2" />
 
+=======
+<item
+    android:state_selected="false"
+    android:state_pressed="false"
+    android:drawable="@drawable/gradient_bg_group" />
+>>>>>>> d9403262eda60355be1dcdfca9ddd85203e30f5d
 </selector>

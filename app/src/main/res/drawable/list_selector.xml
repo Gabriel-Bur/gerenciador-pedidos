@@ -4,5 +4,8 @@
         android:state_selected="false"
         android:state_pressed="false"
         android:drawable="@drawable/gradient_bg" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9403262eda60355be1dcdfca9ddd85203e30f5d
 </selector>

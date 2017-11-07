@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText username;
     private EditText password;
-    private ButtonRectangle loginBtn;
+    private Button loginBtn;
 
 
     @Override
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void init(){
         username = (EditText) findViewById(R.id.main_UserEditText);
         password = (EditText) findViewById(R.id.main_PassEditText);
-        loginBtn = (ButtonRectangle) findViewById(R.id.main_LoginBtn);
+        loginBtn = (Button) findViewById(R.id.main_LoginBtn);
     }
 
 
