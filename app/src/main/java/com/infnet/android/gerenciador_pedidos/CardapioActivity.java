@@ -81,6 +81,9 @@ public class CardapioActivity extends AppCompatActivity {
         listaDeBebidasAlcoolicas = new ArrayList<>();
         listaDeVinhos = new ArrayList<>();
 
+        mDatabase.keepSynced(true);
+
+
         //Recebe a mesa escolhida pelo usuário
         final Intent it = getIntent();
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");

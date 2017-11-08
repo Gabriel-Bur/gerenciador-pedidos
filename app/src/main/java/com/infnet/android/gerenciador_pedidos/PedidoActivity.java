@@ -54,6 +54,8 @@ public class PedidoActivity extends AppCompatActivity {
         dinheiro = (TextView) findViewById(R.id.pedido_valorTextLabel);
         enviarComanda = (Button) findViewById(R.id.pedido_enviarComandaBtn);
 
+        mDatabase.keepSynced(true);
+
         it = getIntent();
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());

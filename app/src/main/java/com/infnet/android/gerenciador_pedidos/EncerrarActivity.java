@@ -65,6 +65,9 @@ public class EncerrarActivity extends AppCompatActivity {
         valorTotal = (TextView)findViewById(R.id.encerrar_valorTotalTextView);
         finalizaPagamento = (Button)findViewById(R.id.encerrar_pagamentoBtn);
 
+        mDatabase.keepSynced(true);
+
+
         Intent it = getIntent();
         mesaEscolhida = (Mesa)it.getSerializableExtra("mesaEscolhida");
         mesaNum.setText(mesaEscolhida.getNome().toString().toUpperCase());

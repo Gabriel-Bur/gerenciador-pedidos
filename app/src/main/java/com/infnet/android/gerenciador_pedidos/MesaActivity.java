@@ -48,7 +48,7 @@ public class MesaActivity extends AppCompatActivity{
     private void init() {
 
         listaMesas = (ListView)findViewById(R.id.mesa_lista);
-
+        mDatabase.keepSynced(true);
 
 
         //Lista todas as mesas do banco

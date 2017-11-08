@@ -51,6 +51,8 @@ public class FormularioActivity extends AppCompatActivity implements View.OnClic
         descricaoProduto = (EditText) findViewById(R.id.formulario_descricaoProduto);
         precoProduto = (EditText) findViewById(R.id.formulario_Valor);
         adicionarProduto = (Button) findViewById(R.id.formulario_adicionarBtn);
+
+        mDatabase.keepSynced(true);
     }
 
     @Override

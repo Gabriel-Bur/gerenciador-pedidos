@@ -78,6 +78,7 @@ public class EditActivity extends AppCompatActivity {
         listaDeBebidasAlcoolicas = new ArrayList<>();
         listaDeVinhos = new ArrayList<>();
 
+        //Lista com os nomes das categorias
         listaDataHeader = new ArrayList<>();
         listaDataHeader.add("Pratos");
         listaDataHeader.add("Aperitivos");
@@ -85,6 +86,9 @@ public class EditActivity extends AppCompatActivity {
         listaDataHeader.add("Bebidas");
         listaDataHeader.add("Bebidas Alcoolicas");
         listaDataHeader.add("Vinhos");
+
+        //Matem o banco atualizado
+        mDatabase.keepSynced(true);
 
 
         referenciaPratos.addValueEventListener(new ValueEventListener() {
