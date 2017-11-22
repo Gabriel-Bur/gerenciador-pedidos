@@ -33,6 +33,12 @@
     <string name="RS">R$</string>
     <string name="categoria">Categoria:</string>
 
+
+
+    <string name="facebook_app_id">132193580825783</string>
+    <string name="fb_login_protocol_scheme">fb1894682377513768</string>
+
+
     <string-array name="Mesas">
         <item>Mesa 01</item>
         <item>Mesa 02</item>

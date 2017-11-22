@@ -70,6 +70,18 @@
         />
 
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/LoginFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/main_LoginBtn"
+        />
+
+
+
 
 
 </RelativeLayout>
