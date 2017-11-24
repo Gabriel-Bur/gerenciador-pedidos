@@ -36,7 +36,7 @@
 
 
     <string name="facebook_app_id">132193580825783</string>
-    <string name="fb_login_protocol_scheme">fb1894682377513768</string>
+    <string name="fb_login_protocol_scheme">fb132193580825783</string>
 
 
     <string-array name="Mesas">
