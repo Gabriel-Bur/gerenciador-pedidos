@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gerenciador-pedidos</string>
+    <string name="app_name">Comander</string>
     <string name="usernamePlaceholder">Username:</string>
     <string name="passwordPlaceholder">Password:</string>
     <string name="loginLabel">Login:</string>
@@ -32,6 +32,7 @@
     <string name="preco">Preço</string>
     <string name="RS">R$</string>
     <string name="categoria">Categoria:</string>
+    <string name="restaurante">Ragazzo</string>
 
 
 
