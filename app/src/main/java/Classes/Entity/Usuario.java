@@ -1,4 +1,4 @@
-package Classes;
+package Classes.Entity;
 
 import java.util.UUID;
 

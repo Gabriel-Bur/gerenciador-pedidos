@@ -1,8 +1,7 @@
-package Classes;
+package Classes.Custom;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 import com.infnet.android.gerenciador_pedidos.R;
 import java.util.List;
 import java.util.Map;
+
+import Classes.Entity.Item;
 
 /**
  * Created by Gabriel on 17/09/2017.

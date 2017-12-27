@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,7 +11,7 @@ import com.infnet.android.gerenciador_pedidos.CardapioActivity;
 import com.infnet.android.gerenciador_pedidos.EncerrarActivity;
 import com.infnet.android.gerenciador_pedidos.R;
 
-import Classes.Mesa;
+import Classes.Entity.Mesa;
 
 /**
  * Created by Gabriel on 07/09/2017.

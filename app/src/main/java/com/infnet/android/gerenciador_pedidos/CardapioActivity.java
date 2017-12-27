@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,9 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import Classes.CustomExpandableListView;
-import Classes.Item;
-import Classes.Mesa;
+import Classes.Custom.CustomExpandableListView;
+import Classes.Entity.Item;
+import Classes.Entity.Mesa;
 
 public class CardapioActivity extends AppCompatActivity {
 

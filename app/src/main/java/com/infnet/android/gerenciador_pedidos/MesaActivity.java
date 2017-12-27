@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TableLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.infnet.android.gerenciador_pedidos.PopUp_Files.MesaPopup;
 import java.util.ArrayList;
 import java.util.List;
-import Classes.Mesa;
+import Classes.Entity.Mesa;
 
 public class MesaActivity extends AppCompatActivity{
 

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -20,9 +19,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import Classes.CustomListView;
-import Classes.Item;
-import Classes.Mesa;
+import Classes.Custom.CustomListView;
+import Classes.Entity.Item;
+import Classes.Entity.Mesa;
 
 public class PedidoActivity extends AppCompatActivity {
 

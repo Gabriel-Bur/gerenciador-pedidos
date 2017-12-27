@@ -60,15 +60,16 @@
         />
 
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/main_LoginFacebookBtn"
+    <Button
+        android:id="@+id/main_RegistroBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/main_LoginBtn"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/main_LoginBtn"
-        />
+        android:layout_marginTop="35dp"
+        android:text="Registrar" />
 
 
 

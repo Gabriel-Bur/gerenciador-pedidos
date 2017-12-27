@@ -1,6 +1,5 @@
-package Classes;
+package Classes.Custom;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -8,14 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.infnet.android.gerenciador_pedidos.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
+
+import Classes.Entity.Item;
 
 /**
  * Created by Gabriel on 04/10/2017.

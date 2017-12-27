@@ -1,15 +1,11 @@
 package com.infnet.android.gerenciador_pedidos;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -17,8 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.UUID;
 
-import Classes.Item;
-import DAO.ConfiguracaoFirebase;
+import Classes.Entity.Item;
 
 
 public class FormularioActivity extends AppCompatActivity implements View.OnClickListener {

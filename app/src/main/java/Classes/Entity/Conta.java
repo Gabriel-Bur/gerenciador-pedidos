@@ -1,4 +1,6 @@
-package Classes;
+package Classes.Entity;
+
+
 
 import android.support.annotation.Nullable;
 

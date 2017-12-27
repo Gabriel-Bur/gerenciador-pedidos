@@ -4,7 +4,6 @@ package com.infnet.android.gerenciador_pedidos.PopUp_Files;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,16 +12,13 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.infnet.android.gerenciador_pedidos.EditActivity;
 import com.infnet.android.gerenciador_pedidos.R;
-
-import org.w3c.dom.Text;
 
 import java.util.Locale;
 import java.util.UUID;
 
-import Classes.Item;
-import Classes.Mesa;
+import Classes.Entity.Item;
+import Classes.Entity.Mesa;
 
 /**
  * Created by Gabriel on 07/09/2017.

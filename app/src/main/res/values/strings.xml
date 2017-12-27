@@ -35,7 +35,6 @@
     <string name="restaurante">Ragazzo</string>
 
 
-
     <string name="facebook_app_id">132193580825783</string>
     <string name="fb_login_protocol_scheme">fb132193580825783</string>
 
@@ -63,5 +62,6 @@
         <item>Vinhos</item>
 
     </string-array>
+    <string name="title_activity_register">RegisterActivity</string>
 
 </resources>

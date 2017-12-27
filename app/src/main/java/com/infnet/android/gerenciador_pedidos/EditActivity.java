@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -25,8 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import Classes.CustomExpandableListView;
-import Classes.Item;
+import Classes.Custom.CustomExpandableListView;
+import Classes.Entity.Item;
 
 public class EditActivity extends AppCompatActivity {
 

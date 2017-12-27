@@ -1,11 +1,6 @@
-package Classes;
-
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
+package Classes.Entity;
 import java.io.Serializable;
-import java.util.UUID;
+
 
 /**
  * Created by gabriel.bur on 11/09/2017.
